@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Date Spots</title>
+
+    <!-- Mapbox JS + CSS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+
+  <body>
+    <!-- Modal (MUST be inside body) -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <button id="modal-close">×</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+<!-- Page Title -->
+<h1 id="page-title">DANIELS DATE SPOTS</h1>
+
+    <!-- Sidebar -->
+    <div id="list">
+      <div id="filters"></div>
+      <div id="list-items"></div>
+    </div>
+
+    <!-- Map -->
+<!-- Map -->
+<div id="map"></div>
+
+<!-- p5.js -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+<!-- Main JS entry -->
+<script type="module" src="/src/main.js"></script>
+
+</html>
