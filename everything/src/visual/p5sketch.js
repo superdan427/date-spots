@@ -2,6 +2,7 @@
 
 let spots = [];
 
+// p5 only receives data — it does not decide layout
 export function updateVisuals(newSpots) {
   spots = newSpots;
 }
@@ -17,28 +18,27 @@ new p5((p) => {
     // Soft fade background
     p.background(245, 245, 245, 40);
 
-    // Define drawable region (left 40% of screen)
+    // Constrain drawing to left panel (40%)
     const drawWidth = p.width * 0.4;
     const drawHeight = p.height;
 
-    // Clip drawing to non-map area
     p.push();
     p.drawingContext.save();
     p.drawingContext.beginPath();
     p.drawingContext.rect(0, 0, drawWidth, drawHeight);
     p.drawingContext.clip();
 
-    spots.forEach((_, i) => {
+    // --- TWO ellipses only ---
+    for (let i = 0; i < 2; i++) {
       const x =
-        p.noise(i * 10 + p.frameCount * 0.005) * drawWidth;
+        p.noise(i * 100 + p.frameCount * 0.004) * drawWidth;
       const y =
-        p.noise(i * 20 + p.frameCount * 0.005) * drawHeight;
+        p.noise(i * 200 + p.frameCount * 0.004) * drawHeight;
 
       p.fill(251, 0, 0);
-      p.circle(x, y, 80);
-    });
+      p.circle(x, y, 120);
+    }
 
-    // Restore normal drawing context
     p.drawingContext.restore();
     p.pop();
   };
